@@ -119,7 +119,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d2d1.lib;windowscodecs.lib;dwrite.lib;d3d11.lib;d3dcompiler.lib;dxgi.lib;dxguid.lib;uuid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;odbc32.lib;odbccp32.lib;onecoreuap.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d2d1.lib;windowscodecs.lib;dwrite.lib;d3d11.lib;d3dcompiler.lib;dxgi.lib;dxguid.lib;uuid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;odbc32.lib;odbccp32.lib;onecoreuap.lib;pathcch.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Version>
       </Version>
     </Link>
@@ -167,7 +167,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d2d1.lib;windowscodecs.lib;dwrite.lib;d3d11.lib;d3dcompiler.lib;dxgi.lib;dxguid.lib;uuid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;odbc32.lib;odbccp32.lib;onecoreuap.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d2d1.lib;windowscodecs.lib;dwrite.lib;d3d11.lib;d3dcompiler.lib;dxgi.lib;dxguid.lib;uuid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;odbc32.lib;odbccp32.lib;onecoreuap.lib;pathcch.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Version>
       </Version>
     </Link>
@@ -217,7 +217,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>d2d1.lib;windowscodecs.lib;dwrite.lib;d3d11.lib;d3dcompiler.lib;dxgi.lib;dxguid.lib;uuid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;odbc32.lib;odbccp32.lib;onecoreuap.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d2d1.lib;windowscodecs.lib;dwrite.lib;d3d11.lib;d3dcompiler.lib;dxgi.lib;dxguid.lib;uuid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;odbc32.lib;odbccp32.lib;onecoreuap.lib;pathcch.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Version>
       </Version>
     </Link>
@@ -269,7 +269,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>d2d1.lib;windowscodecs.lib;dwrite.lib;d3d11.lib;d3dcompiler.lib;dxgi.lib;dxguid.lib;uuid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;odbc32.lib;odbccp32.lib;onecoreuap.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d2d1.lib;windowscodecs.lib;dwrite.lib;d3d11.lib;d3dcompiler.lib;dxgi.lib;dxguid.lib;uuid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;odbc32.lib;odbccp32.lib;onecoreuap.lib;pathcch.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <Version>
       </Version>
     </Link>
@@ -334,8 +334,24 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="appicon.ico" />
-    <Image Include="CalibriBoth96Dpi.png" />
-    <Image Include="OnePixelLines1200x700.png" />
+    <Image Include="CalibriBoth96Dpi.png">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+    </Image>
+    <Image Include="OnePixelLinesBW1200x700.png">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+    </Image>
+    <Image Include="OnePixelLinesRG1200x700.png">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="settings.manifest" />

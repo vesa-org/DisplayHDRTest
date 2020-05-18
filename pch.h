@@ -28,6 +28,8 @@
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+#include <Shlwapi.h>
+#include <PathCch.h>
 
 #include <wrl/client.h>
 #include <wrl.h>
@@ -91,6 +93,23 @@ namespace DX
         std::wstringstream out;
         out << std::setprecision(n) << a_value;
         return out.str();
+    }
+
+    // In some environments (e.g. MSIX/desktop bridge), we have to force the absolute file path
+    // for APIs such as WIC - even though the working directory appears to be correct.
+    // Note this breaks file loading for cases where the working directory is not where the executable is,
+    // for example during Visual Studio debugging.
+    inline std::wstring GetAbsolutePath(_In_ std::wstring filename)
+    {
+        WCHAR wd[MAX_PATH];
+        DWORD length = GetModuleFileName(NULL, wd, ARRAYSIZE(wd));
+        PathCchRemoveFileSpec(wd, ARRAYSIZE(wd));
+
+        std::wstringstream abspath;
+        abspath << wd << L"\\" << filename;
+
+        //MessageBox(nullptr, abspath.str().c_str(), L"Full path", MB_OK);
+        return abspath.str();
     }
 
     inline HRESULT ReadDataFromFile(LPCWSTR filename, byte** data, UINT* size)

@@ -90,7 +90,7 @@ IFACEMETHODIMP BandedGradientEffect::Initialize(
 
     try
     {
-        DX::ReadDataFromFile(L"BandedGradientEffect.cso", &data, &size);
+        DX::ReadDataFromFile(DX::GetAbsolutePath(std::wstring(L"BandedGradientEffect.cso")).c_str(), &data, &size);
     }
     catch (std::exception)
     {

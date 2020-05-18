@@ -114,7 +114,7 @@ IFACEMETHODIMP ToneSpikeEffect::Initialize(
 
     try
     {
-        DX::ReadDataFromFile(L"ToneSpikeEffect.cso", &data, &size);
+        DX::ReadDataFromFile(DX::GetAbsolutePath(std::wstring(L"ToneSpikeEffect.cso")).c_str(), &data, &size);
     }
     catch (std::exception)
     {
