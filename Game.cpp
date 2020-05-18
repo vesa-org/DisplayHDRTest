@@ -4368,7 +4368,7 @@ void Game::LoadImageResources(TestPatternResources* resources)
         {
             ComPtr<IWICBitmapDecoder> decoder;
             HRESULT hr = wicFactory->CreateDecoderFromFilename(
-                resources->imageFilename.c_str(),
+                DX::GetAbsolutePath(resources->imageFilename).c_str(),
                 nullptr,
                 GENERIC_READ,
                 WICDecodeMetadataCacheOnDemand,

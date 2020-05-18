@@ -114,7 +114,7 @@ IFACEMETHODIMP SineSweepEffect::Initialize(
 
     try
     {
-        DX::ReadDataFromFile(L"SineSweepEffect.cso", &data, &size);
+        DX::ReadDataFromFile(DX::GetAbsolutePath(std::wstring(L"SineSweepEffect.cso")).c_str(), &data, &size);
     }
     catch (std::exception)
     {
